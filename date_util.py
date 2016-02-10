@@ -4,7 +4,6 @@ import numpy
 
 def get_date_diff_hrs(from_date, to_date):
     """Returns difference of hours between two dates excluding weekends."""
-
     weekdays = numpy.busday_count(from_date.date(), to_date.date())
     from_date_end_time = datetime(
         year=from_date.year, month=from_date.month, day=from_date.day,
@@ -20,3 +19,37 @@ def get_date_diff_hrs(from_date, to_date):
     date_diff_hrs = (weekdays - 1) * 24 + total_seconds / 3600.0
 
     return date_diff_hrs
+
+
+def get_date_diff_count(from_date, to_date):
+    """Returns difference count between two dates excluding weekends."""
+    if from_date and to_date:
+        return numpy.busday_count(from_date.date(), to_date.date())
+
+    return None
+
+
+def format_hrs_in_days(hours):
+    if hours < 1:
+        return "{:.2f}".format(hours * 60) + 'min(s)' if hours > 0 else 0
+    if hours < 24:
+        return str(int(hours)) + 'hr(s)'
+
+    d = hours/24
+    h = hours % 24
+    d = str(int(d)) + ' day(s)'
+    if h > 0:
+        d += ', ' + str(int(h)) + 'hr(s)'
+    return d
+
+
+def change_date_format(date):
+    date = datetime.strptime(date, '%m/%d/%Y')
+    return date.strftime('%Y-%m-%d %H:%M:%S')
+
+
+def date_to_string(date):
+    if date:
+        return datetime.strftime(date, '%m/%d/%Y')
+
+    return None
