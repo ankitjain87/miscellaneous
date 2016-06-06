@@ -1,3 +1,4 @@
+//http://download.basecase.com/programming-test/defender-test.pdf
 //http://jsfiddle.net/j0eboygz/1/
 
 function paddleMoves(nearestRock) {
