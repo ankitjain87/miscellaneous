@@ -1,4 +1,5 @@
-"""Logical expression Evaluator."""
+"""Logical expression Evaluator. 
+https://docs.google.com/document/d/16CKK4nL9peu2OORAVP4Gm8-N-8RCPiFv--0ku6jRibo/edit"""
 
 
 def exp_and(left, right):
@@ -84,7 +85,7 @@ def evaluate(expr, input_obj):
     return eval_expr(get_value(left, input_obj), op, get_value(right, input_obj))
 
 
-
+# Assuming the given user object will always have value like user.address.city or event.category.
 input_obj = {
     "user": {
         "address": {
